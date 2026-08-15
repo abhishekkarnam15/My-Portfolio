@@ -200,7 +200,6 @@ button:focus-visible {
   pointer-events: none;
 }
 
-.site-header,
 main,
 .footer {
   position: relative;

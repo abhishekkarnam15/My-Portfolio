@@ -104,37 +104,48 @@
     document.querySelectorAll(".timeline").forEach((timeline) => timeline.classList.add("visible"));
   }
 
-  if ("IntersectionObserver" in window && navLinks.length) {
-    const sectionMap = new Map(
-      navLinks
-        .map((link) => {
-          const id = link.getAttribute("href");
-          return id && id.startsWith("#") ? [document.querySelector(id), link] : null;
-        })
-        .filter(Boolean)
-    );
+  const sectionLinks = navLinks
+    .map((link) => {
+      const id = link.getAttribute("href");
+      const section = id && id.startsWith("#") ? document.querySelector(id) : null;
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
 
-    const activeObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  const setActiveLink = () => {
+    if (!sectionLinks.length) return;
 
-        if (!visible) return;
+    const headerOffset = 120;
+    const scrollPosition = window.scrollY + headerOffset;
+    const pageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    let activeItem = sectionLinks[0];
 
-        navLinks.forEach((link) => link.classList.remove("active"));
-        const activeLink = sectionMap.get(visible.target);
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
-      },
-      { threshold: [0.24, 0.42, 0.62], rootMargin: "-18% 0px -58% 0px" }
-    );
-
-    sectionMap.forEach((_, section) => {
-      if (section) activeObserver.observe(section);
+    sectionLinks.forEach((item) => {
+      if (item.section.offsetTop <= scrollPosition) {
+        activeItem = item;
+      }
     });
-  }
+
+    if (pageBottom) {
+      activeItem = sectionLinks[sectionLinks.length - 1];
+    }
+
+    navLinks.forEach((link) => link.classList.remove("active"));
+    activeItem.link.classList.add("active");
+  };
+
+  let activeLinkFrame = 0;
+  const requestActiveLinkUpdate = () => {
+    if (activeLinkFrame) return;
+    activeLinkFrame = window.requestAnimationFrame(() => {
+      setActiveLink();
+      activeLinkFrame = 0;
+    });
+  };
+
+  setActiveLink();
+  window.addEventListener("scroll", requestActiveLinkUpdate, { passive: true });
+  window.addEventListener("resize", requestActiveLinkUpdate);
 
   const applyProjectFilter = (filter) => {
     body.classList.add("filtering");
