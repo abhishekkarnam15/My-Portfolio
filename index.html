@@ -1,27 +1,59 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Resume website for Abhishek Karnam, a cybersecurity student focused on secure applications, network security, and machine learning.">
-  <title>Abhishek Karnam | Resume</title>
+  <meta name="description" content="Portfolio website for Abhishek Karnam, a Computer Science Engineering student focused on cybersecurity, AI/ML, network security, and software development.">
+  <meta name="author" content="Abhishek Karnam">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abhishek Karnam | Cybersecurity and AI/ML Portfolio">
+  <meta property="og:description" content="Computer Science Engineering student building intelligent security systems with machine learning, anomaly detection, network security, and software development.">
+  <meta property="og:image" content="WhatsApp Image 2026-06-16 at 11.19.43 AM.jpeg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Abhishek Karnam | Cybersecurity and AI/ML Portfolio">
+  <meta name="twitter:description" content="Cybersecurity, AI/ML, network security, and software development portfolio.">
+  <title>Abhishek Karnam | Cybersecurity and AI/ML Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abhishek Karnam",
+      "email": "mailto:abhishekkarnam1505@gmail.com",
+      "sameAs": [
+        "https://github.com/Abhishekkarnam",
+        "https://www.linkedin.com/in/abhishek-karnam"
+      ],
+      "knowsAbout": [
+        "Cybersecurity",
+        "Machine Learning",
+        "Network Security",
+        "Software Development",
+        "Python",
+        "Java",
+        "SQL"
+      ]
+    }
+  </script>
 </head>
 <body id="top">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Scroll to top">AK</a>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
       </button>
-      <div class="nav-links">
+      <div class="nav-links" id="primary-navigation">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
+        <a href="#experience">Education</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
@@ -29,111 +61,122 @@
   </header>
 
   <main>
-    <section class="hero section">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Resume portfolio</p>
-        <h1>Abhishek Karnam</h1>
-        <p class="hero-text">
-          Cybersecurity student focused on secure applications, network security, machine learning, and practical problem solving.
+    <section class="hero section" aria-labelledby="hero-title">
+      <canvas class="hero-network" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <p class="eyebrow hero-animate delay-0">Cybersecurity + AI/ML portfolio</p>
+        <h1 id="hero-title" class="hero-animate delay-1">Cybersecurity &amp; AI/ML Enthusiast</h1>
+        <p class="hero-text hero-animate delay-2">
+          Computer Science Engineering student building intelligent security systems by combining machine learning, anomaly detection, network security, and full-stack development.
         </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View work</a>
-          <a class="button secondary" href="#contact">Contact me</a>
+        <div class="hero-actions hero-animate delay-3" aria-label="Primary actions">
+          <a class="button primary" href="#projects">View projects</a>
+          <a class="button secondary" href="Abhishek_Karnam_Resume.pdf" target="_blank" rel="noopener noreferrer">Download resume</a>
+          <a class="button ghost" href="https://github.com/Abhishekkarnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button ghost" href="https://www.linkedin.com/in/abhishek-karnam" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
-      <aside class="hero-panel reveal" aria-label="Profile highlights">
+      <aside class="hero-panel hero-animate delay-4" aria-label="Profile highlights">
         <figure class="profile-image-wrap">
           <img src="WhatsApp Image 2026-06-16 at 11.19.43 AM.jpeg" alt="Portrait of Abhishek Karnam" class="profile-image">
         </figure>
-        <div>
-          <span class="metric">RV University</span>
-          <p>Currently pursuing B.Tech (Hons) in Computer Science Engineering with a major in Cybersecurity and a minor in Fintech.</p>
-        </div>
-        <div>
-          <span class="metric">Interests</span>
-          <p>Network security, vulnerability assessment, secure application development, machine learning, AI security, and ethical hacking fundamentals.</p>
+        <div class="highlight-grid">
+          <div class="highlight-item">
+            <span class="metric">Cybersecurity + AI/ML</span>
+            <p>Focused on secure systems, anomaly detection, and intelligent analysis.</p>
+          </div>
+          <div class="highlight-item">
+            <span class="metric">Python - Java - SQL</span>
+            <p>Programming, data analysis, databases, and software fundamentals.</p>
+          </div>
+          <div class="highlight-item">
+            <span class="metric">Technical projects</span>
+            <p>Security, machine learning, and applied software development work.</p>
+          </div>
+          <div class="highlight-item">
+            <span class="metric">Open to internships</span>
+            <p>Seeking collaborative technical environments to learn and contribute.</p>
+          </div>
         </div>
       </aside>
     </section>
 
-    <section class="section two-column" id="about">
+    <section class="section two-column" id="about" aria-labelledby="about-title">
       <div class="section-heading reveal">
         <p class="eyebrow">About</p>
-        <h2>Practical, curious, and ready to contribute.</h2>
+        <h2 id="about-title">Computer Science Engineering student with a security-first mindset.</h2>
       </div>
       <div class="section-body reveal">
         <p>
-          Hardworking college student seeking an internship or entry-level opportunity. I bring a motivated attitude, a growing cybersecurity toolkit, and a strong interest in collaborative technical environments where I can learn, build, and contribute with care.
+          I am a hardworking college student seeking an internship or entry-level opportunity. My work focuses on cybersecurity, network security, machine learning, and practical software development. I enjoy building projects that make systems safer, easier to analyze, and more useful in real-world technical environments.
         </p>
-        <div class="quick-info">
+        <div class="quick-info" aria-label="Quick profile information">
           <span>Location: India</span>
-          <span>Email: abhishekkarnam1505@gmail.com</span>
-          <span>Open to: Internships / Entry-level roles</span>
+          <span>Email: <a href="mailto:abhishekkarnam1505@gmail.com">abhishekkarnam1505@gmail.com</a></span>
+          <span>Open to: Internships / entry-level roles</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
+    <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="section-heading reveal">
         <p class="eyebrow">Skills</p>
-        <h2>Core toolkit</h2>
+        <h2 id="skills-title">Technical toolkit</h2>
       </div>
-      <div class="skill-grid reveal">
-        <article class="skill-card">
+      <div class="skill-grid stagger-group">
+        <article class="skill-card reveal">
           <h3>Cybersecurity</h3>
-          <ul>
-            <li>Network security and cryptography basics</li>
-            <li>Authentication and access control</li>
-            <li>Web application security and ethical hacking fundamentals</li>
-          </ul>
+          <div class="tag-list" aria-label="Cybersecurity skills">
+            <span>Network security</span>
+            <span>Cryptography basics</span>
+            <span>Authentication</span>
+            <span>Access control</span>
+            <span>Web application security</span>
+            <span>Ethical hacking fundamentals</span>
+            <span>Nmap</span>
+            <span>Wireshark</span>
+            <span>Burp Suite</span>
+            <span>Nikto</span>
+          </div>
         </article>
-        <article class="skill-card">
-          <h3>Web development</h3>
-          <ul>
-            <li>HTML, CSS, and JavaScript</li>
-            <li>Responsive design</li>
-            <li>Accessibility basics</li>
-          </ul>
+        <article class="skill-card reveal">
+          <h3>AI &amp; Machine Learning</h3>
+          <div class="tag-list" aria-label="AI and machine learning skills">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Scikit-learn</span>
+            <span>TensorFlow basics</span>
+            <span>Anomaly detection</span>
+            <span>Data analysis</span>
+            <span>Model development</span>
+          </div>
         </article>
-        <article class="skill-card">
-          <h3>Database systems</h3>
-          <ul>
-            <li>SQL, PostgreSQL, and SQLite</li>
-            <li>Database design</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Machine learning</h3>
-          <ul>
-            <li>Python, Pandas, NumPy, and Scikit-learn</li>
-            <li>TensorFlow basics</li>
-            <li>Data analysis and model development</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Programming</h3>
-          <ul>
-            <li>Python, Java, and C</li>
-            <li>Data structures and debugging</li>
-            <li>Problem solving</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Tools</h3>
-          <ul>
-            <li>Git, GitHub, VS Code, and GitHub Pages</li>
-            <li>Kali Linux, Nmap, Wireshark, Burp Suite, and Nikto</li>
-          </ul>
+        <article class="skill-card reveal">
+          <h3>Software &amp; Web Development</h3>
+          <div class="tag-list" aria-label="Software and web development skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive design</span>
+            <span>Java</span>
+            <span>C</span>
+            <span>SQL</span>
+            <span>PostgreSQL</span>
+            <span>SQLite</span>
+            <span>Git</span>
+            <span>GitHub</span>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section timeline-section" id="experience">
+    <section class="section timeline-section" id="experience" aria-labelledby="experience-title">
       <div class="section-heading reveal">
-        <p class="eyebrow">Experience</p>
-        <h2>Experience and education</h2>
+        <p class="eyebrow">Education</p>
+        <h2 id="experience-title">Education and technical foundation</h2>
       </div>
-      <div class="timeline">
+      <div class="timeline stagger-group" aria-label="Education timeline">
         <article class="timeline-item reveal">
           <span class="date">2026</span>
           <div>
@@ -161,55 +204,124 @@
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-heading reveal">
         <p class="eyebrow">Projects</p>
-        <h2>A few things I have built.</h2>
+        <h2 id="projects-title">Security and AI/ML projects</h2>
       </div>
-      <div class="project-grid">
-        <article class="project-card reveal">
+
+      <div class="project-filters reveal" role="group" aria-label="Filter projects by category">
+        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button" data-filter="cybersecurity" aria-pressed="false">Cybersecurity</button>
+        <button class="filter-button" type="button" data-filter="ai-ml" aria-pressed="false">AI/ML</button>
+        <button class="filter-button" type="button" data-filter="web-development" aria-pressed="false">Web development</button>
+      </div>
+
+      <div class="project-grid stagger-group" aria-live="polite">
+        <article class="project-card reveal" data-category="cybersecurity web-development">
           <div class="project-topline">
+            <p class="project-category">Cybersecurity | Web development</p>
             <h3>SecureShare</h3>
-            <span>Hybrid encryption with access control</span>
           </div>
-          <p>
-            Secure file sharing system that stores files safely, demonstrates realistic attacks, and protects files with hybrid cryptography using AES and RSA.
+          <p class="project-problem">
+            Secure file sharing system for storing files safely while demonstrating realistic attacks and protection methods.
           </p>
-          <a href="https://github.com/Abhishekkarnam/Secure-File-Sharing-Deployment.git" target="_blank" rel="noreferrer">View repository</a>
+          <div class="project-block">
+            <h4>Tech stack</h4>
+            <div class="tag-list compact">
+              <span>AES</span>
+              <span>RSA</span>
+              <span>Access control</span>
+              <span>Secure file sharing</span>
+            </div>
+          </div>
+          <div class="project-block">
+            <h4>Key highlights</h4>
+            <ul>
+              <li>Uses hybrid cryptography concepts with AES and RSA.</li>
+              <li>Shows how attacks can affect a file sharing workflow.</li>
+              <li>Connects security protection with practical user-facing functionality.</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Abhishekkarnam/Secure-File-Sharing-Deployment.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </article>
-        <article class="project-card reveal">
+
+        <article class="project-card reveal" data-category="cybersecurity ai-ml">
           <div class="project-topline">
-            <h3>Real-time insider threat detection</h3>
-            <span>Python, Streamlit, psutil, scapy</span>
+            <p class="project-category">Cybersecurity | AI/ML</p>
+            <h3>Real-Time Insider Threat Detection System</h3>
           </div>
-          <p>
-            Dashboard that collects live system and network activity, builds behavior profiles, scores deviations, and displays alerts for suspicious insider activity.
+          <p class="project-problem">
+            Detects suspicious insider activity by analyzing live system and network behavior.
           </p>
-          <a href="https://github.com/Abhishekkarnam/real-time-insider-threat-detection.git" target="_blank" rel="noreferrer">View repository</a>
+          <div class="project-block">
+            <h4>Tech stack</h4>
+            <div class="tag-list compact">
+              <span>Python</span>
+              <span>Streamlit</span>
+              <span>psutil</span>
+              <span>scapy</span>
+            </div>
+          </div>
+          <div class="project-block">
+            <h4>Key highlights</h4>
+            <ul>
+              <li>Collects live system and network activity.</li>
+              <li>Builds behavior profiles and scores deviations.</li>
+              <li>Displays alerts through a Streamlit dashboard.</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Abhishekkarnam/real-time-insider-threat-detection.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </article>
-        <article class="project-card reveal">
+
+        <article class="project-card reveal" data-category="ai-ml">
           <div class="project-topline">
-            <h3>Video game sales prediction</h3>
-            <span>Python, Pandas, Scikit-learn</span>
+            <p class="project-category">AI/ML</p>
+            <h3>Video Game Sales Prediction</h3>
           </div>
-          <p>
-            Machine learning project that analyzes game features such as platform, genre, regional sales, and global sales to predict sales performance.
+          <p class="project-problem">
+            Analyzes game features and sales data to predict video game sales performance.
           </p>
-          <a href="https://github.com/Abhishekkarnam/Video-Games-Sales-Prediction-.git" target="_blank" rel="noreferrer">View repository</a>
+          <div class="project-block">
+            <h4>Tech stack</h4>
+            <div class="tag-list compact">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>Scikit-learn</span>
+              <span>Machine learning</span>
+            </div>
+          </div>
+          <div class="project-block">
+            <h4>Key highlights</h4>
+            <ul>
+              <li>Uses platform, genre, regional sales, and global sales features.</li>
+              <li>Applies regression and classification workflows.</li>
+              <li>Turns dataset analysis into practical prediction insights.</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Abhishekkarnam/Video-Games-Sales-Prediction-.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="contact-card reveal">
         <p class="eyebrow">Contact</p>
-        <h2>Let's build something useful.</h2>
-        <p>Please contact me through these links.</p>
-        <div class="contact-links">
+        <h2 id="contact-title">Interested in security-focused software work.</h2>
+        <p>
+          I am open to internship and entry-level opportunities where I can contribute to cybersecurity, AI/ML, network security, and software development projects.
+        </p>
+        <div class="contact-links" aria-label="Contact links">
           <a href="mailto:abhishekkarnam1505@gmail.com">Email</a>
-          <a href="https://github.com/Abhishekkarnam" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/abhishek-karnam" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="Abhishek_Karnam_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume PDF</a>
+          <a href="https://github.com/Abhishekkarnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/abhishek-karnam" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="Abhishek_Karnam_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
       </div>
     </section>

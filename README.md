@@ -1,55 +1,104 @@
-# Deploying this resume site to Vercel
+# Portfolio Website
 
-This repository is a static site (files: `index.html`, `styles.css`, `script.js`). Two easy ways to host on Vercel:
+## About
 
-1) Deploy via Vercel Dashboard (recommended)
+A static resume and portfolio website for Abhishek Karnam, a Computer Science Engineering student focused on cybersecurity, AI/ML, network security, and software development.
 
-- Go to https://vercel.com and sign in or create an account.
-- Click **New Project** → **Import Git Repository** and authorize GitHub (or GitLab/Bitbucket).
-- Select this repository from your account.
-- For a plain static site: set Framework Preset to "Other" (or leave blank). No build command is required.
-- Set the Root Directory to the repository root (default) and leave the Output Directory empty.
-- Click **Deploy**. Vercel will build (no-op for static) and publish; the generated URL appears in the dashboard.
+## Features
 
-2) Drag-and-drop (manual upload)
+- Responsive dark professional design
+- Sticky navigation and mobile menu
+- Smooth scrolling
+- Active navigation highlighting
+- Scroll progress indicator
+- Subtle hero entrance animation
+- Lightweight hero network visualization
+- Staggered reveal animations
+- Interactive project cards
+- Accessible project filtering
+- Recruiter-friendly project presentation
+- Keyboard-visible focus states
+- Reduced motion support
+- SEO and social sharing metadata
 
-- In the Vercel dashboard, click **New Project** → **Deploy** and choose **Drag & Drop** (or go to https://vercel.com/import/clone and use the upload option).
-- Zip your site files or select the folder, then drop them into the browser. Vercel will upload and publish.
+## Tech Stack
 
-3) (Optional) CLI deploy
+- HTML5
+- CSS3
+- JavaScript
 
-If you prefer the command line, install the Vercel CLI and run from this project folder:
+## Project Structure
 
-```bash
-npm install -g vercel
-vercel        # follow prompts
-vercel --prod # publish to production
+```text
+.
+|-- index.html                  # Main page content, SEO metadata, sections, and project data
+|-- styles.css                  # Theme, responsive layout, cards, animations, and accessibility styles
+|-- script.js                   # Navigation, filtering, reveal animations, progress bar, and hero canvas
+|-- Abhishek_Karnam_Resume.pdf  # Resume file linked from CTA buttons
+`-- *.jpeg                      # Profile image assets
 ```
 
-Notes:
-- No environment variables are needed for a static resume site.
-- To enable continuous deployment, connect the repository in the dashboard so Vercel deploys on every push.
-- To add a custom domain, open the project settings in the Vercel dashboard and follow the DNS instructions.
+## Local Setup
 
----
+No build step is required.
 
-If you want, I can:
-- connect this repo to Vercel from your account (you'll need to authorize GitHub),
-- or run the CLI deploy interactively from your terminal.
-# Resume Website
+Open `index.html` directly in a browser, or run a simple local server from the project folder:
 
-A static resume portfolio for GitHub Pages.
+```bash
+python -m http.server 8000
+```
 
-## Edit your details
+Then open:
 
-Update `index.html` with your real summary, email, education, experience, projects, GitHub, LinkedIn, and resume PDF link.
+```text
+http://localhost:8000
+```
 
-## Host on GitHub Pages
+## Customization
+
+Update these areas in `index.html`:
+
+- Personal introduction: hero heading and supporting text
+- Profile highlights: the cards inside `.hero-panel`
+- Skills: the categorized `.skill-card` sections
+- Education: the timeline items in `#experience`
+- Projects: each `.project-card`, including `data-category`, descriptions, tech stack, highlights, and links
+- Contact links: email, GitHub, LinkedIn, and resume link
+- Profile image: the `<img>` inside `.profile-image-wrap`
+
+Update these areas in `styles.css`:
+
+- Color variables in `:root`
+- Spacing and container width variables
+- Card, button, and animation styling
+
+Update these areas in `script.js`:
+
+- Project filter behavior if new categories are added
+- Hero network node count or motion if you want a stronger or lighter effect
+
+## Deployment
+
+### Vercel
+
+1. Sign in to [Vercel](https://vercel.com).
+2. Click **New Project**.
+3. Import the GitHub repository.
+4. Use the default static-site settings. No build command is required.
+5. Deploy.
+
+### GitHub Pages
 
 1. Push this folder to a GitHub repository.
 2. Open the repository on GitHub.
-3. Go to Settings > Pages.
-4. Under Build and deployment, choose Deploy from a branch.
+3. Go to **Settings > Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
 5. Select the `main` branch and `/root`, then save.
 
-Your site will be published at the URL GitHub shows in the Pages settings.
+## Accessibility
+
+This site includes semantic sections, keyboard-visible focus states, accessible navigation labels, `aria-expanded` mobile menu state, accessible project filter buttons, descriptive image alt text, and reduced motion support.
+
+## License
+
+No license file is currently included. Add a `LICENSE` file if you want to define reuse permissions.
