@@ -190,19 +190,26 @@ button:focus-visible {
   overflow: hidden;
 }
 
-.hero-network {
-  position: absolute;
-  inset: 28px 0 18px;
-  width: 100%;
-  height: calc(100% - 46px);
-  opacity: 0.34;
+.site-network {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.2;
   pointer-events: none;
+}
+
+.site-header,
+main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-copy,
 .hero-panel {
   position: relative;
-  z-index: 1;
 }
 
 .eyebrow {
@@ -771,7 +778,7 @@ h4 {
     transition-duration: 1ms !important;
   }
 
-  .hero-network {
+  .site-network {
     display: none;
   }
 

@@ -8,7 +8,7 @@
   const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
   const projectCards = Array.from(document.querySelectorAll(".project-card"));
   const progressBar = document.querySelector(".scroll-progress");
-  const heroCanvas = document.querySelector(".hero-network");
+  const networkCanvas = document.querySelector(".site-network");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (year) {
@@ -163,10 +163,10 @@
     });
   });
 
-  const initHeroNetwork = () => {
-    if (!heroCanvas || prefersReducedMotion.matches) return;
+  const initSiteNetwork = () => {
+    if (!networkCanvas || prefersReducedMotion.matches) return;
 
-    const context = heroCanvas.getContext("2d");
+    const context = networkCanvas.getContext("2d");
     if (!context) return;
 
     let width = 0;
@@ -181,12 +181,12 @@
     }));
 
     const resizeCanvas = () => {
-      const rect = heroCanvas.getBoundingClientRect();
+      const rect = networkCanvas.getBoundingClientRect();
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
       width = Math.max(rect.width, 1);
       height = Math.max(rect.height, 1);
-      heroCanvas.width = Math.floor(width * ratio);
-      heroCanvas.height = Math.floor(height * ratio);
+      networkCanvas.width = Math.floor(width * ratio);
+      networkCanvas.height = Math.floor(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
     };
 
@@ -250,5 +250,5 @@
     });
   };
 
-  initHeroNetwork();
+  initSiteNetwork();
 })();
