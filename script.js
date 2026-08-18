@@ -10,15 +10,21 @@
   const progressBar = document.querySelector(".scroll-progress");
   const networkCanvas = document.querySelector(".site-network");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const filterTimers = new WeakMap();
 
   if (year) {
     year.textContent = new Date().getFullYear();
   }
 
-  const closeNavigation = () => {
+  const focusableNavItems = () => Array.from(document.querySelectorAll("#primary-navigation a"));
+
+  const closeNavigation = (returnFocus = false) => {
     body.classList.remove("nav-open");
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", "false");
+      if (returnFocus) {
+        navToggle.focus();
+      }
     }
   };
 
@@ -35,6 +41,9 @@
     navToggle.addEventListener("click", () => {
       const isOpen = body.classList.toggle("nav-open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) {
+        window.setTimeout(() => focusableNavItems()[0]?.focus(), 0);
+      }
     });
   }
 
@@ -46,7 +55,7 @@
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      closeNavigation();
+      closeNavigation(true);
     }
   });
 
@@ -150,16 +159,41 @@
   const applyProjectFilter = (filter) => {
     body.classList.add("filtering");
 
+    if (prefersReducedMotion.matches) {
+      projectCards.forEach((card) => {
+        const categories = (card.dataset.category || "").split(" ");
+        const shouldShow = filter === "all" || categories.includes(filter);
+        card.classList.toggle("is-hidden", !shouldShow);
+        card.classList.remove("is-hiding", "is-filter-entering");
+        if (shouldShow) card.classList.add("visible");
+      });
+      body.classList.remove("filtering");
+      return;
+    }
+
     projectCards.forEach((card) => {
       const categories = (card.dataset.category || "").split(" ");
       const shouldShow = filter === "all" || categories.includes(filter);
-      card.classList.toggle("is-hidden", !shouldShow);
-      if (shouldShow) {
-        card.classList.add("visible");
+      window.clearTimeout(filterTimers.get(card));
+
+      if (!shouldShow) {
+        card.classList.add("is-hiding");
+        const hideTimer = window.setTimeout(() => {
+          card.classList.add("is-hidden");
+          card.classList.remove("is-hiding", "is-filter-entering");
+        }, 180);
+        filterTimers.set(card, hideTimer);
+        return;
       }
+
+      card.classList.remove("is-hidden", "is-hiding");
+      card.classList.add("visible", "is-filter-entering");
+      window.requestAnimationFrame(() => {
+        card.classList.remove("is-filter-entering");
+      });
     });
 
-    window.setTimeout(() => body.classList.remove("filtering"), 240);
+    window.setTimeout(() => body.classList.remove("filtering"), 260);
   };
 
   filterButtons.forEach((button) => {
